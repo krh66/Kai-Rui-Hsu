@@ -1514,14 +1514,15 @@ button,
   font-family: proxima-nova;
   font-size: 0.8em;
   font-weight: 700;
-  height: 3.5em;
+  height: 2.5em;
   letter-spacing: .1em;
-  line-height: 3.5em;
-  padding: 0 2.25em;
+  line-height: 2.5em;
+  padding: 0px 1em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  font-size: 10px;
   }
   input[type="submit"]:hover,
   input[type="reset"]:hover,
