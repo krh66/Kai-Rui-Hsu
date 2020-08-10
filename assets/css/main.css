@@ -112,11 +112,13 @@ a {
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   border-bottom: dotted 1px;
-  color: #f56a6a;
-  text-decoration: none; }
+  color: #121212;
+  text-decoration: none;
+  }
   a:hover {
     border-bottom-color: #f56a6a;
-    color: #f56a6a !important; }
+    color: #e1a87a !important;
+    }
     a:hover strong {
       color: inherit; }
 
@@ -2220,7 +2222,8 @@ button,
     line-height: 2em;
     }
     #menu ul a:hover, #menu ul span:hover {
-      color: #f56a6a; }
+      color: #e1a87a;
+      }
     #menu ul a.opener, #menu ul span.opener {
       -moz-transition: color 0.2s ease-in-out;
       -webkit-transition: color 0.2s ease-in-out;
