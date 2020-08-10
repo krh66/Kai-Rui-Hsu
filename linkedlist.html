@@ -41,19 +41,134 @@
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
 									<p>Space Complexity: O(1), the space used by slow and fast</p>
 									<p>
-										<div id="app"><div class="playground-mini-base snippet-mode"><div class="toolbar-base disable-run-code"><div class="lang-btn-set-base"><div class="lang-btn-set"><button class="btn active">Java</button><button class="btn false">Python3</button></div></div><div class="pull-right button-set-base" title="find-the-duplicate-number-1"><button class="btn copy-code-btn btn-default"><i class="fa fa-clipboard" aria-hidden="true"></i>&nbsp; Copy</button></div></div><div class="editor-base"><div class="editor"><div class="ReactCodeMirror"><textarea name="lc-codemirror" autocomplete="off" style="display: none;">class Solution {
-											public int findDuplicate(int[] nums) {
-												Set&lt;Integer&gt; seen = new HashSet&lt;Integer&gt;();
-												for (int num : nums) {
-													if (seen.contains(num)) {
-														return num;
-													}
-													seen.add(num);
-												}
-										
-												return -1;
-											}
-										}</textarea><div class="CodeMirror cm-s-textmate CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 123px; left: 229.266px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 38px; margin-bottom: 0px; border-right-width: 30px; min-height: 229px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 191.266px; top: 119px; height: 17px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Solution</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-type">int</span> <span class="cm-variable">findDuplicate</span>(<span class="cm-type">int</span>[] <span class="cm-variable">nums</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Set</span><span class="cm-operator">&lt;</span><span class="cm-type">Integer</span><span class="cm-operator">&gt;</span> <span class="cm-variable">seen</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">HashSet</span><span class="cm-operator">&lt;</span><span class="cm-type">Integer</span><span class="cm-operator">&gt;</span>();</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-type">int</span> <span class="cm-variable">num</span> : <span class="cm-variable">nums</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">seen</span>.<span class="cm-variable">contains</span>(<span class="cm-variable">num</span>)) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">num</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">seen</span>.<span class="cm-variable">add</span>(<span class="cm-variable">num</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-operator">-</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 229px;"></div><div class="CodeMirror-gutters" style="height: 259px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div></div></div></div><div class="copied-panel false">Code copied for&nbsp;Java</div></div></div>
+										<div id="app">
+											<div class="playground-mini-base snippet-mode">
+												<div class="editor-base">
+													<div class="editor">
+														<div class="ReactCodeMirror">
+															<textarea name="lc-codemirror" autocomplete="off" style="display: none;">
+																class Solution {
+																	public int findDuplicate(int[] nums) {
+																		Set&lt;Integer&gt; seen = new HashSet&lt;Integer&gt;();
+																		for (int num : nums) {
+																			if (seen.contains(num)) {
+																				return num;
+																			}
+																			seen.add(num);
+																		}
+																
+																		return -1;
+																	}
+																}
+															</textarea>
+															<div class="CodeMirror cm-s-textmate CodeMirror-wrap">
+																<div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 123px; left: 229.266px;">
+																	<textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;">
+																	</textarea>
+																</div>
+																<div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none;">
+																	<div style="min-width: 1px; height: 0px;"></div>
+																</div>
+																<div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 18px; pointer-events: none;">
+																	<div style="height: 100%; min-height: 1px; width: 0px;"></div>
+																</div>
+																<div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+																<div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+																<div class="CodeMirror-scroll" tabindex="-1">
+																	<div class="CodeMirror-sizer" style="margin-left: 38px; margin-bottom: 0px; border-right-width: 30px; min-height: 229px; padding-right: 0px; padding-bottom: 0px;">
+																		<div style="position: relative; top: 0px;">
+																			<div class="CodeMirror-lines" role="presentation">
+																				<div role="presentation" style="position: relative; outline: none;">
+																					<div class="CodeMirror-measure">
+																						<span><span>​</span>x</span>
+																					</div>
+																					<div class="CodeMirror-measure"></div>
+																					<div style="position: relative; z-index: 1;"></div>
+																					<div class="CodeMirror-cursors" style="visibility: hidden;">
+																						<div class="CodeMirror-cursor" style="left: 191.266px; top: 119px; height: 17px;">&nbsp;
+																						</div>
+																					</div>
+																					<div class="CodeMirror-code" role="presentation" style="">
+																						<!--new line-->
+																						<div style="position: relative;">
+																							<div class="CodeMirror-gutter-wrapper" style="left: -38px;">
+																								<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div>
+																							</div>
+																							<pre class=" CodeMirror-line " role="presentation">
+																								<span role="presentation" style="padding-right: 0.1px;">
+																									<span class="cm-keyword">class</span> 
+																									<span class="cm-def">Solution</span> {
+																								</span>
+																							</pre>
+																						</div>
+																						<!--new line-->
+																						<div style="position: relative;">
+																						<div class="CodeMirror-gutter-wrapper" style="left: -38px;">
+																							<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div>
+																						</div>
+																						<pre class=" CodeMirror-line " role="presentation">
+																							<span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> 
+																							<span class="cm-type">int</span> 
+																							<span class="cm-variable">findDuplicate</span>(
+																								<span class="cm-type">int</span>[] 
+																								<span class="cm-variable">nums</span>) {</span>
+																						</pre>
+																						</div>
+																						<!--new line-->
+																						<div style="position: relative;">
+																							<div class="CodeMirror-gutter-wrapper" style="left: -38px;">
+																								<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div>
+																							</div>
+																							<pre class=" CodeMirror-line " role="presentation">
+																								<span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Set</span>
+																								<span class="cm-operator">&lt;</span>
+																								<span class="cm-type">Integer</span>
+																								<span class="cm-operator">&gt;</span> 
+																								<span class="cm-variable">seen</span> 
+																								<span class="cm-operator">=</span> 
+																								<span class="cm-keyword">new</span> 
+																								<span class="cm-variable">HashSet</span>
+																								<span class="cm-operator">&lt;</span>
+																								<span class="cm-type">Integer</span>
+																								<span class="cm-operator">&gt;</span>();</span>
+																							</pre>
+																						</div>
+																						<!--new line-->
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-type">int</span> <span class="cm-variable">num</span> : <span class="cm-variable">nums</span>) {</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">seen</span>.<span class="cm-variable">contains</span>(<span class="cm-variable">num</span>)) {</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">num</span>;</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">seen</span>.<span class="cm-variable">add</span>(<span class="cm-variable">num</span>);</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-operator">-</span><span class="cm-number">1</span>;</span></pre></div>
+																						<div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div>
+																						<div style="position: relative;">
+																							<div class="CodeMirror-gutter-wrapper" style="left: -38px;">
+																								<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13
+																								</div>
+																							</div>
+																							<pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span>
+																							</pre>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 229px;"></div>
+																	<div class="CodeMirror-gutters" style="height: 259px; left: 0px;">
+																		<div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div>
+																		<div class="CodeMirror-gutter CodeMirror-foldgutter"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="copied-panel false">Code copied for&nbsp;Java</div>
+											</div>
+										</div>
 									</p>
 											<!---
 									<textarea>
