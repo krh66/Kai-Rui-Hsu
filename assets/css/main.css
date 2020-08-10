@@ -91,11 +91,13 @@ body {
 
 /* Type */
 body, input, select, textarea {
-  color: #7f888f;
-  font-family: "Open Sans", sans-serif;
+  color: #121212;
+  font-family: proxima-nova;
   font-size: 13pt;
   font-weight: 400;
-  line-height: 1.65; }
+  line-height: 1.65;
+  letter-spacing: .1em;
+  }
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
       font-size: 11pt; } }
@@ -133,11 +135,16 @@ p {
   margin: 0 0 2em 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #3d4449;
+  color: #121212;
   font-family: "Roboto Slab", serif;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.5;
-  margin: 0 0 1em 0; }
+  margin: 0 0 1em 0;
+  font-family: proxima-nova;
+  font-style: normal;
+  letter-spacing: .165em;
+  text-transform: uppercase;
+  }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
     text-decoration: none;
@@ -992,12 +999,15 @@ section.special, article.special {
   text-align: center; }
 
 header p {
-  font-family: "Roboto Slab", serif;
+  font-family: proxima-nova;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.075em;
   margin-top: -0.5em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  /* line-height: 2em; */
+  letter-spacing: .1em;
+  }
 
 header.major > :last-child {
   border-bottom: solid 3px #f56a6a;
@@ -1497,21 +1507,22 @@ button,
   background-color: transparent;
   border-radius: 0.375em;
   border: 0;
-  box-shadow: inset 0 0 0 2px #f56a6a;
-  color: #f56a6a !important;
+  box-shadow: inset 0 0 0 1px #121212;
+  color: #121212 !important;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
+  font-family: proxima-nova;
   font-size: 0.8em;
   font-weight: 700;
   height: 3.5em;
-  letter-spacing: 0.075em;
+  letter-spacing: .1em;
   line-height: 3.5em;
   padding: 0 2.25em;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  white-space: nowrap; }
+  white-space: nowrap;
+  }
   input[type="submit"]:hover,
   input[type="reset"]:hover,
   input[type="button"]:hover,
