@@ -2293,3 +2293,8 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+
+  div#app, div#app > div {
+      height: 100%;
+      min-width: 300px;
+  }
