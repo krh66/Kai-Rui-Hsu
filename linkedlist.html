@@ -36,7 +36,7 @@
 									<hr class="major" />
 
 									<h2>Middle of a linked list</h2>
-									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876</a></p>
+									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876 Middle of Linked List</a></p>
 									<P>Approach: Fast and Slow Pointer</P>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
 									<p>Space Complexity: O(1), the space used by slow and fast</p>
@@ -62,7 +62,7 @@
 									<hr class="major" />
 
 									<h2>Reverese a linked list</h2>
-									<p><a href = "https://leetcode.com/problems/reverse-linked-list/solution/">[Easy] No.206</a></p>
+									<p><a href = "https://leetcode.com/problems/reverse-linked-list/solution/">[Easy] No.206 Reverese Linked List</a></p>
 									<P>Approach: Iterative</P>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
 									<p>Space Complexity: O(1)</p>
@@ -83,11 +83,10 @@
 			}
 		};
 </textarea>
-									<p><a href = "https://leetcode.com/problems/reverse-linked-list-ii/">[Medium] No.92</a></p>
+									<p><a href = "https://leetcode.com/problems/reverse-linked-list-ii/">[Medium] No.92 Reverse Linked List from index m to index n</a></p>
 									<P>Approach: Iterative</P>
-									<p>Time Complexity: O(N), We process each of the nodes at most once (we don't process the nodes after the n^{th}n 
-										th node from the beginning.</p>
-									<p>Space Complexity: O(1) since we simply adjust some pointers in the original linked list and only use O(1)O(1) additional memory for achieving the final result.</p>
+									<p>Time Complexity: O(N), We process each of the nodes at most once (we don't process the nodes after the nth node from the beginning).</p>
+									<p>Space Complexity: O(1) since we simply adjust some pointers in the original linked list and only use O(1) additional memory for achieving the final result.</p>
 									<p class = "code solution">
 <textarea>
 
@@ -95,9 +94,89 @@
 									<hr class="major" />
 
 									<h2>Merge two sorted linked list</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<p><a href = "https://leetcode.com/problems/merge-two-sorted-lists/">[Easy] No.21. Merge Two Sorted Lists</a></p>
+									<P>Approach: Iterative</P>
+									<p>Time Complexity: O(n+m), n is the length of l1 and m is the length of l2.</p>
+									<p>Space Complexity: O(1) The iterative approach only allocates a few pointers, so it has a constant overall memory footprint.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+				ListNode* dummy = new ListNode(0);
+				ListNode* iter = dummy;
+				while(l1!=NULL && l2!=NULL){
+					if(l1->val > l2->val){
+						iter->next = l2;
+						l2 = l2->next;
+					}else{
+						iter->next = l1;
+						l1 = l1->next;
+					}
+					iter = iter->next;
+				}
+				if(l1!=NULL){
+					iter->next = l1;
+				}
+				if(l2!=NULL){
+					iter->next = l2;
+				}
+				iter = dummy->next;
+				delete dummy;
+				return iter;
+			}
+		};
+</textarea>
+									<p><a href = "https://leetcode.com/problems/merge-two-sorted-lists/">[Hard] No.23. Merge k Sorted Lists</a></p>
+									<P>Approach 1: Compare one by one</P>
+									<p>Time Complexity: O(kN) where k is the number of linked lists. N is the number of nodes in the final linked list.</p>
+									<p>Space Complexity: O(n) Creating a new linked list costs O(n) space.
+										O(1) It's not hard to apply in-place method - connect selected nodes instead of creating new nodes to fill the new linked list.</p>
+									<p class = "code solution">
+<textarea>
 
+</textarea>
+									<P>Approach 2: Optimize Approach 1 by Priority Queue</P>
+									<p>Time Complexity: O(Nlogk) where k is the number of linked lists. N is the number of nodes in the final linked list.</p>
+									<p>Space Complexity: O(n) Creating a new linked list costs O(n) space.
+										O(k)The code above present applies in-place method which cost O(1) space. And the priority queue (often implemented with heaps) costs O(k)O(k) space (it's far less than NN in most situations).
+										</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		private:
+		struct cmp {
+			bool operator() ( ListNode* l1, ListNode* l2){
+				return l1->val > l2->val;
+			}
+		};
+		public:
+		ListNode* mergeKLists(vector<ListNode*>& lists) {
+			
+			int n = lists.size();
+			if(n == 0) return NULL;
+			
+			ListNode* dummy = new ListNode(0);
+			ListNode* iter = dummy;
+			
+			priority_queue<ListNode, vector<ListNode*>, cmp > q;
+			
+			for(auto list : lists){
+				if(list != NULL)
+					q.push(list);
+			}
+			
+			while( q.empty() == false){
+				iter->next = q.top();
+				q.pop();
+				iter = iter->next;
+				if(iter->next)
+				   q.push(iter->next);
+			}
+			return dummy->next;
+		}
+	};
+</textarea>
 								</section>
 
 						</div>
