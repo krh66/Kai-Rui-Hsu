@@ -37,8 +37,13 @@
 
 									<h2>Trie (Prefix Tree)</h2>
 									<p><a href = "https://leetcode.com/problems/implement-trie-prefix-tree/">[Medium] No.208 Implement Trie (Prefix Tree)</a></p>
-									<p>Trie node structure</p>
-									
+									<p>Trie node structure: </p>
+<textarea>
+	struct TrieNode {
+		bool flag;
+		map<char, TrieNode*> next; 
+	};
+</textarea>
 									<P>Approach: Fast and Slow Pointer</P>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
 									<p>Space Complexity: O(1), the space used by slow and fast</p>
