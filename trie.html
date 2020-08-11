@@ -50,7 +50,7 @@
 									<span class="image main"><img src="images/208_TrieInsert.png" alt="" /></span>
 									<p>Time Complexity: O(N), where N is the key length.</p>
 									<p>Space Complexity: O(N), the worst case is to insert every single letter of key.</p>
-									<p>
+									<p class = "code solution">
 <textarea>
 	class Trie {
 		public:
@@ -79,25 +79,61 @@
 </textarea>
 									</p>
 									<P>Search for a key in a trie:</P>
+									<span class="image main"><img src="images/208_TrieSearchKey.png" alt="" /></span>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1), the space used by slow and fast</p>
-									<P>Approach: Fast and Slow Pointer</P>
-									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1), the space used by slow and fast</p>
+									<p>Space Complexity: O(1)</p>
 									<p class = "code solution">
 <textarea>
-	class Solution {
+	class Trie {
 		public:
-			ListNode* middleNode(ListNode* head) {
-				ListNode* slow = head;
-				ListNode* fast = head;
-				while (fast != NULL && fast->next != NULL) {
-					slow = slow->next;
-					fast = fast->next->next;
-				}
-				return slow;
+			/** Initialize your data structure here. */
+			TrieNode* root;
+			
+			Trie() {
+				root = new TrieNode();
 			}
-		};
+			
+			/** Returns if the word is in the trie. */
+			bool search(string word) {
+				TrieNode* iter = root;
+				for(int i = 0 ; i < word.size() ; i++){
+					if( (iter->next).count(word[i]) <= 0){
+						return false;
+					}
+					iter = iter->next[word[i]];
+				}
+				return iter->flag;
+			}
+	};
+</textarea>
+									</p>
+									<P>Search for a key prefix in a trie:</P>
+									<span class="image main"><img src="images/208_TrieSearchPrefix.png" alt="" /></span>
+									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
+									<p>Space Complexity: O(1)</p>
+									<p class = "code solution">
+<textarea>
+	class Trie {
+		public:
+			/** Initialize your data structure here. */
+			TrieNode* root;
+			
+			Trie() {
+				root = new TrieNode();
+			}
+			
+			/** Returns if there is any word in the trie that starts with the given prefix. */
+			bool startsWith(string prefix) {
+				TrieNode* iter = root;
+				for(int i = 0 ; i < prefix.size() ; i++){
+					if( (iter->next).count(prefix[i]) <= 0){
+						return false;
+					}
+					iter = iter->next[prefix[i]];
+				}
+				return true;
+			}
+	};
 </textarea>
 									</p>
 									<!-- <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
