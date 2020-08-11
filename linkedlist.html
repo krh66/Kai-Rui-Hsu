@@ -83,6 +83,36 @@
 			}
 		};
 </textarea>
+									<p><a href = "https://leetcode.com/problems/reverse-linked-list-ii/">[Medium] No.92</a></p>
+									<P>Approach: Iterative</P>
+									<p>Time Complexity: O(N), We process each of the nodes at most once (we don't process the nodes after the n^{th}n 
+										th node from the beginning.</p>
+									<p>Space Complexity: O(1) since we simply adjust some pointers in the original linked list and only use O(1)O(1) additional memory for achieving the final result.</p>
+									<p class = "code solution">
+<textarea>
+
+</textarea>
+									<p><a href = "https://leetcode.com/problems/reverse-linked-list/solution/">[Easy] No.206</a></p>
+									<P>Approach: Iterative</P>
+									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
+									<p>Space Complexity: O(1)</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			ListNode* reverseList(ListNode* head) {
+				ListNode* prev = NULL;
+				ListNode* curr = head;
+				while(curr != NULL) {
+					ListNode* nextTemp = curr->next;
+					curr->next = prev;
+					prev = curr;
+					curr = nextTemp;
+				}
+				return prev;
+			}
+		};
+</textarea>
 									<hr class="major" />
 
 									<h2>Merge two sorted linked list</h2>
