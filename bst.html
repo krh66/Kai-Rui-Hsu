@@ -58,9 +58,40 @@
 </textarea>
 									</p>
 									<span class="image main"><img src="images/208_TrieInsert.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
-									<p>Fact2. Successor (after node)</p>
-									<p>Fact3. Predecessor (before node)</p>
+									<h3>Fact2. Successor (after node)</h3>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			ListNode* inorderTraversal(ListNode* root) {
+					root = root->right;
+					while(root->left != NULL) root = root->left;
+					return root;
+			}
+		};
+</textarea>
+									</p>
+									<h3>Fact3. Predecessor (before node)</h3>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			vector<int> vec;
+			void inorderTraversal(ListNode* root) {
+				if(root == NULL) return NULL;
+				
+				//finish left children first
+				inorderTraversal(root->left);
 
+				//add self into the vector
+				vec.push_back(root->val);
+				
+				//finish the right children
+				inorderTraversal(root->right);
+			}
+		};
+</textarea>
+									</p>
 									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876 Middle of Linked List</a></p>
 									<P>Approach: Fast and Slow Pointer</P>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
