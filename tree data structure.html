@@ -36,17 +36,30 @@
 									<hr class="major" />
 
 									<h2>Basic concept</h2>
-									<p><a href = "https://leetcode.com/problems/implement-trie-prefix-tree/">[Medium] No.208 Implement Trie (Prefix Tree)</a></p>
-									<p><a href = "https://leetcode.com/problems/add-and-search-word-data-structure-design/">[Medium] 211. Add and Search Word - Data structure design</a></p>
-									<h3>Trie node structure: </h3>
-									<p class = "code solution">
+									<h3>Definition:</h3>
+									<p>Degree: For a given node, its number of children.</p>
+									<p>External Node / leaf Node: Any node that does not have child nodes.</p>
+									<p>Internal Node : any node of a tree that has at least one child node.</p>
+									<span class="image main"><img src="images/tree_structure.png" alt="" /><p>(The above image is from http://alrightchiu.github.io/SecondRound/.)</p></span>
+									<h3>Tree data structure: </h3>
+									<p>
 <textarea>
-	struct TrieNode {
-		bool flag;  // 'true': when the string is at the end, otherwise it's false
-		map<char, TrieNode*> next;  // You can use a vector to replace the map
+	 struct TreeNode {
+	     int val;
+	     TreeNode *left;
+	     TreeNode *right;
+	     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 	};
+	
 </textarea>
 									</p>
+									<h3>Different types of tree: </h3>
+									<p>General Tree</p>
+									<p>Binary Tree</p>
+									<p>General Tree</p>
+									<p>General Tree</p>
 
 						</div>
 					</div>
