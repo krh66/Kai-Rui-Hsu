@@ -36,111 +36,25 @@
 									<hr class="major" />
 
 									<h2>Binary Tree</h2>
-									<p><a href = "https://leetcode.com/problems/implement-trie-prefix-tree/">[Medium] No.208 Implement Trie (Prefix Tree)</a></p>
-									<p><a href = "https://leetcode.com/problems/add-and-search-word-data-structure-design/">[Medium] 211. Add and Search Word - Data structure design</a></p>
-									<h3>Trie node structure: </h3>
-									<p class = "code solution">
+									<h3>Data Structure:</h3>
+									<p>
 <textarea>
-	struct TrieNode {
-		bool flag;  // 'true': when the string is at the end, otherwise it's false
-		map<char, TrieNode*> next;  // You can use a vector to replace the map
+	 struct TreeNode {
+	     int val;
+	     TreeNode *left;
+	     TreeNode *right;
+	     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 	};
+	
 </textarea>
 									</p>
-									<h3>Insertion of a key in a trie:</h3>
-									<span class="image main"><img src="images/208_TrieInsert.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
-									<p>Time Complexity: O(N), where N is the key length.</p>
-									<p>Space Complexity: O(N), the worst case is to insert every single letter of key.</p>
-									<p class = "code solution">
-<textarea>
-	class Trie {
-		public:
-			/** Initialize your data structure here. */
-			TrieNode* root;
-			
-			Trie() {
-				root = new TrieNode();
-			}
-			
-			/** Inserts a word into the trie. */
-			void insert(string word) {
-				TrieNode* p = root; // empty root
-				for(int i = 0 ; i < word.size() ; i++){
-					if( (p->next).count(word[i]) <= 0){ // prefix does not exist
-						//insert prefix
-						(p->next).insert({word[i], new TrieNode()});
-					}
-					//move on to the next trienode
-					p = (p->next)[word[i]];
-				}
-				//mark the position which ends the string
-				p->flag = true;
-			}
-	};
-</textarea>
-									</p>
-									<h3>Search for a key in a trie:</h3>
-									<span class="image main"><img src="images/208_TrieSearchKey.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
-									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1)</p>
-									<p class = "code solution">
-<textarea>
-	class Trie {
-		public:
-			/** Initialize your data structure here. */
-			TrieNode* root;
-			
-			Trie() {
-				root = new TrieNode();
-			}
-			
-			/** Returns if the word is in the trie. */
-			bool search(string word) {
-				TrieNode* iter = root;
-				for(int i = 0 ; i < word.size() ; i++){
-					if( (iter->next).count(word[i]) <= 0){
-						return false;
-					}
-					iter = iter->next[word[i]];
-				}
-				return iter->flag;
-				//if the target string ends but the flag isn't true, meaning that we don't have matched string in the map
-			}
-	};
-</textarea>
-									</p>
-									<h3>Search for a key prefix in a trie:</h3>
-									<span class="image main"><img src="images/208_TrieSearchPrefix.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
-									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1)</p>
-									<p class = "code solution">
-<textarea>
-	class Trie {
-		public:
-			/** Initialize your data structure here. */
-			TrieNode* root;
-			
-			Trie() {
-				root = new TrieNode();
-			}
-			
-			/** Returns if there is any word in the trie that starts with the given prefix. */
-			bool startsWith(string prefix) {
-				TrieNode* iter = root;
-				for(int i = 0 ; i < prefix.size() ; i++){
-					if( (iter->next).count(prefix[i]) <= 0){
-						return false;
-					}
-					iter = iter->next[prefix[i]];
-				}
-				return true;
-				//we only care about whether we have the same prefix in the map, not the whole same string in the map
-			}
-	};
-</textarea>
-									</p>
-								</section>
-
+									<span class="image main"><img src="images/binary_tree.png" alt="" /><p>(The above image is from http://alrightchiu.github.io/SecondRound/.)</p></span>
+									<p>Complete Binary Tree</p>
+									<span class="image main"><img src="images/complete_binary_tree.png" alt="" /><p>(The above image is from http://alrightchiu.github.io/SecondRound/.)</p></span>
+									
+									
 						</div>
 					</div>
 
