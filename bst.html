@@ -88,7 +88,7 @@
 									<hr class="major" />
 									<p><a href = "https://leetcode.com/problems/insert-into-a-binary-search-tree/">[Medium] No.701 Insert into a Binary Search Tree</a></p>
 									<P>Approach: recursion</P>
-									<p>Time Complexity: O(logN) in the average case, and O(N) in the worst case.</p>
+									<p>Time Complexity: O(H), H = logN if it's a balanced tree. O(H)/O(logN) in the average case, and O(N) in the worst case.</p>
 									<p>Space Complexity: O(H) to keep the recursion stack, where H is a tree height. H =logN for the balanced tree. O(N) in the worst case.</p>
 									<p class = "code solution">
 <textarea>
@@ -111,7 +111,7 @@
 									<hr class="major" />
 									<p><a href = "https://leetcode.com/problems/delete-node-in-a-bst/">[Medium] No.450 Delete Node in a BST</a></p>
 									<P>Approach: recursion and finding successor</P>
-									<p>Time Complexity: O(logN)</p>
+									<p>Time Complexity: O(H), H = logN if it's a balanced tree. O(H)/O(logN) in the average case, and O(N) in the worst case.</p>
 									<p>Space Complexity: O(H) to keep the recursion stack, where H is a tree height. H =logN for the balanced tree.</p>
 									<p class = "code solution">
 <textarea>
