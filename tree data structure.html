@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Welcome to Kai-Rui's blog!</title>
+		<title>Tree Data Structure</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -23,19 +23,31 @@
 							<!-- Header -->
 								<header id="header"></header>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Kairui Hsu</h1>
-											<p>This blog only documents algorithms and leetcode questions. </p>
-										</header>
-										<p> I am a software engineer based in Tempe, AZ specilizing in FinTech. Check on my main website to know more about me.</p>
-										<ul class="actions">
-											<li><a href="https://slasherfactory.com/kairuihsu/index.php" class="button big"> Let's go</a></li>
-										</ul>
-									</div>
-								</section>
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Tree</h1>
+									</header>
+									<!--
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									-->
+									<p></p>
+
+									<hr class="major" />
+
+									<h2>Tree Data Structure</h2>
+									<p><a href = "https://leetcode.com/problems/implement-trie-prefix-tree/">[Medium] No.208 Implement Trie (Prefix Tree)</a></p>
+									<p><a href = "https://leetcode.com/problems/add-and-search-word-data-structure-design/">[Medium] 211. Add and Search Word - Data structure design</a></p>
+									<h3>Trie node structure: </h3>
+									<p class = "code solution">
+<textarea>
+	struct TrieNode {
+		bool flag;  // 'true': when the string is at the end, otherwise it's false
+		map<char, TrieNode*> next;  // You can use a vector to replace the map
+	};
+</textarea>
+									</p>
+
 						</div>
 					</div>
 
