@@ -86,9 +86,32 @@
 									<span class="image main"><img src="images/succ2.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
 									
 									<hr class="major" />
-									<p><a href = "https://leetcode.com/problems/delete-node-in-a-bst/">[Medium] 450. Delete Node in a BST</a></p>
+									<p><a href = "https://leetcode.com/problems/insert-into-a-binary-search-tree/">[Medium] No.701 Insert into a Binary Search Tree</a></p>
+									<P>Approach: recursion</P>
+									<p>Time Complexity: O(logN) in the average case, and O(N) in the worst case.</p>
+									<p>Space Complexity: O(H) to keep the recursion stack, where H is a tree height. H =logN for the balanced tree. O(N) in the worst case.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+	public:
+		TreeNode* insertIntoBST(TreeNode* root, int val) {
+			if (root == NULL) {
+				return new TreeNode(val);   // return a new node if root is null
+			}
+			if (root->val < val) {           // insert to the right subtree if val > root->val
+				root->right = insertIntoBST(root->right, val);
+			} else {                        // insert to the left subtree if val <= root->val
+				root->left = insertIntoBST(root->left, val);
+			}
+			return root;
+		}
+	};
+</textarea>
+									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/delete-node-in-a-bst/">[Medium] No.450 Delete Node in a BST</a></p>
 									<P>Approach: recursion and finding successor</P>
-									<p>Time Complexity: O(logN), where N is the number of nodes in the given list.</p>
+									<p>Time Complexity: O(logN)</p>
 									<p>Space Complexity: O(H) to keep the recursion stack, where H is a tree height. H =logN for the balanced tree.</p>
 									<p class = "code solution">
 <textarea>
