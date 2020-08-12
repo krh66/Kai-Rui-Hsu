@@ -162,6 +162,32 @@
    };
 </textarea>
 									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/unique-binary-search-trees/">[Medium] No.96. Unique Binary Search Trees</a></p>
+									<span class="image main"><img src="images/96_BST.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
+									<P>Approach: dynamic programming</P>
+									<p>Time Complexity: O(N^2)</p>
+									<p>Space Complexity: O(N)</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int numTrees(int n) {
+				vector<int> g(n+1,0);
+				g[0] = 1;
+				g[1] = 1;
+				
+				for(int i = 2 ; i <= n ; i++) {
+					for(int j = 1 ; j <= i ; j++) {
+						//length of two subtree
+						g[i] += g[j-1] * g[i-j]; //g[2] = g[0] * g[1]
+					}
+				}
+				return g[n];
+			}
+		};
+</textarea>
+									</p>
 									<!-- <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p> -->
 								</section>
