@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Binary Tree</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header"></header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Tree</h1>
+									</header>
+									<!--
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									-->
+									<p></p>
+
+									<hr class="major" />
+
+									<h2>Binary Tree</h2>
+									<p><a href = "https://leetcode.com/problems/implement-trie-prefix-tree/">[Medium] No.208 Implement Trie (Prefix Tree)</a></p>
+									<p><a href = "https://leetcode.com/problems/add-and-search-word-data-structure-design/">[Medium] 211. Add and Search Word - Data structure design</a></p>
+									<h3>Trie node structure: </h3>
+									<p class = "code solution">
+<textarea>
+	struct TrieNode {
+		bool flag;  // 'true': when the string is at the end, otherwise it's false
+		map<char, TrieNode*> next;  // You can use a vector to replace the map
+	};
+</textarea>
+									</p>
+									<h3>Insertion of a key in a trie:</h3>
+									<span class="image main"><img src="images/208_TrieInsert.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
+									<p>Time Complexity: O(N), where N is the key length.</p>
+									<p>Space Complexity: O(N), the worst case is to insert every single letter of key.</p>
+									<p class = "code solution">
+<textarea>
+	class Trie {
+		public:
+			/** Initialize your data structure here. */
+			TrieNode* root;
+			
+			Trie() {
+				root = new TrieNode();
+			}
+			
+			/** Inserts a word into the trie. */
+			void insert(string word) {
+				TrieNode* p = root; // empty root
+				for(int i = 0 ; i < word.size() ; i++){
+					if( (p->next).count(word[i]) <= 0){ // prefix does not exist
+						//insert prefix
+						(p->next).insert({word[i], new TrieNode()});
+					}
+					//move on to the next trienode
+					p = (p->next)[word[i]];
+				}
+				//mark the position which ends the string
+				p->flag = true;
+			}
+	};
+</textarea>
+									</p>
+									<h3>Search for a key in a trie:</h3>
+									<span class="image main"><img src="images/208_TrieSearchKey.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
+									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
+									<p>Space Complexity: O(1)</p>
+									<p class = "code solution">
+<textarea>
+	class Trie {
+		public:
+			/** Initialize your data structure here. */
+			TrieNode* root;
+			
+			Trie() {
+				root = new TrieNode();
+			}
+			
+			/** Returns if the word is in the trie. */
+			bool search(string word) {
+				TrieNode* iter = root;
+				for(int i = 0 ; i < word.size() ; i++){
+					if( (iter->next).count(word[i]) <= 0){
+						return false;
+					}
+					iter = iter->next[word[i]];
+				}
+				return iter->flag;
+				//if the target string ends but the flag isn't true, meaning that we don't have matched string in the map
+			}
+	};
+</textarea>
+									</p>
+									<h3>Search for a key prefix in a trie:</h3>
+									<span class="image main"><img src="images/208_TrieSearchPrefix.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
+									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
+									<p>Space Complexity: O(1)</p>
+									<p class = "code solution">
+<textarea>
+	class Trie {
+		public:
+			/** Initialize your data structure here. */
+			TrieNode* root;
+			
+			Trie() {
+				root = new TrieNode();
+			}
+			
+			/** Returns if there is any word in the trie that starts with the given prefix. */
+			bool startsWith(string prefix) {
+				TrieNode* iter = root;
+				for(int i = 0 ; i < prefix.size() ; i++){
+					if( (iter->next).count(prefix[i]) <= 0){
+						return false;
+					}
+					iter = iter->next[prefix[i]];
+				}
+				return true;
+				//we only care about whether we have the same prefix in the map, not the whole same string in the map
+			}
+	};
+</textarea>
+									</p>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="linkedlist.html">Linked List</a></li>
+										<li>
+											<span class="opener">Contianer</span>
+											<ul>
+												<li><a href="vector.html">Vector</a></li>
+												<li><a href="matrix.html">Matrix</a></li>
+												<li><a href="array.html">Array</a></li>
+												<li><a href="stack.html">Stack</a></li>
+												<li><a href="queue.html">Queue</a></li>
+												<li><a href="map.html">Map</a></li>
+												<li><a href="set.html">Set</a></li>
+											</ul>
+										</li>
+										<li>
+											<span class="opener">Tree</span>
+											<ul>
+												<li><a href="tree basic concept.html">Basic Concept</a></li>
+												<li><a href="bt.html">Binary Tree</a></li>
+												<li><a href="bst.html">Binary First Search</a></li>
+												<li><a href="trie.html">Trie</a></li>
+											</ul>
+										</li>
+										<li><a href="iteration.html">Iteration</a></li>
+										<li><a href="recursion.html">Recursion</a></li>
+										<li><a href="dfs.html">DFS</a></li>
+										<li><a href="bfs.html">BFS</a></li>
+										<li><a href="graph.html">Graph</a></li>
+										<li><a href="dp.html">Dynamic Programming</a></li>
+										<li>
+											<span class="opener">Sorting</span>
+											<ul>
+												<li><a href="insertionSort.html">Insertion Sort</a></li>
+												<li><a href="bubbleSort.html">Bubble Sort</a></li>
+												<li><a href="quickSort.html">Quick Sort</a></li>
+												<li><a href="mergeSort.html">Merge Sort</a></li>
+											</ul>
+										</li>
+										<li><a href="slidewindow.html">Slide Window</a></li>
+										<li><a href="greedy.html">Greedy Algorithm</a></li>
+										<li><a href="divide.html">Divide and Conquer</a></li>
+									</ul>
+								</nav>
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; 2020 Kairui Hsu. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
