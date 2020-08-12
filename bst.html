@@ -76,18 +76,10 @@
 <textarea>
 	class Solution {
 		public:
-			vector<int> vec;
-			void inorderTraversal(ListNode* root) {
-				if(root == NULL) return NULL;
-				
-				//finish left children first
-				inorderTraversal(root->left);
-
-				//add self into the vector
-				vec.push_back(root->val);
-				
-				//finish the right children
-				inorderTraversal(root->right);
+		ListNode* inorderTraversal(ListNode* root) {
+			root = root->left;
+			while(root->right != NULL) root = root->right;
+			return root;
 			}
 		};
 </textarea>
