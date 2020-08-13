@@ -37,12 +37,21 @@
 
 									<h2>Heap</h2>
 									<p>Heap is a tree-based data structure.</p>
-									<h3>Binary Heap:</h3>
+									<h3>Binary Heap</h3>
 									<p>A binary heap is a complete binary tree. There are max-heap and min-heap. Binary heaps are a common way of implementing priority queues. Thus, we can say priority queue uses a heap as data structure.</p>
-									<h3> Max Heap:</h3>
+									<h3> Operations on heap</h3>
+									<p>make_heap(iter_first, iter_last): Making a vector into a max heap. </p>
+									<p>
+<textarea>
+									<p>make_heap(iter_first, iter_last, comp): Making a vector into a min heap. The comp parameter is greater<int>().</p>
+									<p>front(): Retrieve the root value in this heap, either a maximum or a minimum value depending on which heap you built.</p>
+									<p>push_heap(): Insert a new value into the heap.</p>
+									<p>pop_headp(): Delete the maximum or minimum value in the heap, and it depends on which heap you use.</p>
+									<h3> Max Heap</h3>
 									<p>Each node is BIGGER than it's left and right children. </p>
 									<p> Use STL to implement Max Heap:</p>
-									<h3> Min Heap: </h3>
+									<p></p>
+									<h3> Min Heap</h3>
 									<p>Each node is SMALLER than it's left and right children. </p> 
 									<span class="image main"><img src="images/heap.png" alt="" /><p>(The above image is from https://www.geeksforgeeks.org/heap-data-structure/.)</p></span>
 									<h3>Fibonacci Heap:</h3>
