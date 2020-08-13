@@ -121,6 +121,30 @@
 									<h4>front()</h4>
 									<h4>push_back()</h4>
 									<h4>pop_back()</h4>
+									<p>
+<textarea>
+	// priority_queue::empty
+	#include <iostream>       // std::cout
+	#include <queue>          // std::priority_queue
+
+	int main () {
+	priority_queue<int> mypq;
+	int sum (0);
+
+	for (int i=1;i<=10;i++) 
+		mypq.push(i);
+
+	while (!mypq.empty()) {
+		sum += mypq.top();
+		mypq.pop();
+	}
+
+	cout << "total: " << sum << '\n';
+
+	return 0;
+	}
+</textarea>
+									</p>
 									
 						</div>
 					</div>
