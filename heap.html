@@ -46,17 +46,15 @@
 									<p>
 <textarea>
 	using namespace std; 
-  
-	int main() 
-	{ 
-		vector<int> vi = { 4, 9, 7, 8, 11}; 
+	int main() { 
+		vector<int> vec = { 4, 9, 7, 8, 11}; 
 		  
 		// using make_heap() to making a vector into a max heap 
-		make_heap(vi.begin(),vi.end()); 
+		make_heap(vec.begin(), vec.end()); 
 		  
 		// front() function 
 		cout << "The maximum number in the heap is:"; 
-		cout << vi.front(); 
+		cout << vec.front(); 
 	} 
 </textarea>
 									</p>
@@ -66,17 +64,15 @@
 									<p>
 <textarea>
 	using namespace std; 
-  
-	int main() 
-	{ 
-		vector<int> vi = { 4, 9, 7, 8, 11}; 
+	int main() { 
+		vector<int> vec = { 4, 9, 7, 8, 11}; 
 		  
 		// using make_heap() to making a vector into a max heap 
-		make_heap(vi.begin(),vi.end(),greater<int>()); 
+		make_heap(vec.begin(), vec.end(), greater<int>()); 
 		  
 		// front() function 
 		cout << "The minimum number in the heap is:"; 
-		cout << vi.front(); 
+		cout << vec.front(); 
 	} 
 </textarea>
 									</p>
