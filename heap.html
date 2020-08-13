@@ -96,8 +96,15 @@
 	cout << "min heap after push: " << v.front();
 </textarea>
 									</p>
-									<h4>pop_heap()</h4>
+									<h4>pop_heap(iter_first, iter_last)</h4>
 									<p>Delete the maximum or minimum value in the heap, and it depends on which heap you use.</p>
+									<p>When we use pop_heap, it will move the maximum or minimum value to the back of the vector, and heapify the elements from 0 to last-1. You need to pop_back the element to finish the operation.</p>
+									<p>
+<textarea>
+	pop_heap (vec.begin(), vec.end()); 
+	vec.pop_back();
+</textarea>
+									</p>
 									<hr class="major" />
 									<h3> Max Heap</h3>
 									<p>Each node is BIGGER than it's left and right children. </p>
