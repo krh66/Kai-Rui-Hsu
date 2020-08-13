@@ -40,8 +40,8 @@
 									<h3>Binary Heap</h3>
 									<p>A binary heap is a complete binary tree. There are max-heap and min-heap. Binary heaps are a common way of implementing priority queues. Thus, we can say priority queue uses a heap as data structure.</p>
 									<h3>Operations on heap</h3>
-									<p>make_heap(iter_first, iter_last): Making a vector into a max heap. </p>
-									<p> * time complexity: O(NlogN)</p>
+									<p>make_heap(iter_first, iter_last): Making a vector into a MAX heap. </p>
+									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N). You represent the heap as an array. The two elements below the i'th element are at positions 2*i+1 and 2*i+2. If the array has n elements then, starting from the end, take each element, and let it "fall" to the right place in the heap. This is O(n) to run.</p>
 									<p> * space complexity: </p>
 									<p>
 <textarea>
@@ -60,7 +60,26 @@
 	} 
 </textarea>
 									</p>
-									<p>make_heap(iter_first, iter_last, comp): Making a vector into a min heap. The comp parameter is greater<int>().</p>
+									<p>make_heap(iter_first, iter_last, comp): Making a vector into a MIN heap. The comp parameter is greater<int>().</p>
+									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N).</p>
+									<p> * space complexity: </p>
+									<p>
+<textarea>
+	using namespace std; 
+  
+	int main() 
+	{ 
+		vector<int> vi = { 4, 9, 7, 8, 11}; 
+		  
+		// using make_heap() to making a vector into a max heap 
+		make_heap(vi.begin(),vi.end(),greater<int>()); 
+		  
+		// front() function 
+		cout << "The minimum number in the heap is:"; 
+		cout << vi.front(); 
+	} 
+</textarea>
+									</p>
 									<p>front(): Retrieve the root value in this heap, either a maximum or a minimum value depending on which heap you built.</p>
 									<p>push_heap(): Insert a new value into the heap.</p>
 									<p>pop_headp(): Delete the maximum or minimum value in the heap, and it depends on which heap you use.</p>
