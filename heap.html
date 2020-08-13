@@ -42,6 +42,8 @@
 									<h3>Operations on heap</h3>
 									<h4>make_heap(iter_first, iter_last)</h4>
 									<p>Making a vector into a MAX heap. </p>
+									<h4>make_heap(iter_first, iter_last, comp)</h4>
+									<p>Making a vector into a MIN heap. The comp parameter is greater<int>().</p>
 									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N). You represent the heap as an array and heap is based on a complete binary tree. The two elements below the i'th element are at positions 2*i+1 and 2*i+2. If the array has n elements then, starting from the end, take each element, and let it "fall" to the right place in the heap. This is O(n) to run.</p>
 									<p> * space complexity: Because the make_heap will rearrange the elements in the vector, basically the space for heap is the same as the vector, which is O(N) for heap itself. There might only few variables that are used for doing swaps. </p>
 									<p>
@@ -59,10 +61,6 @@
 	} 
 </textarea>
 									</p>
-									<h4>make_heap(iter_first, iter_last, comp)</h4>
-									<p>Making a vector into a MIN heap. The comp parameter is greater<int>().</p>
-									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N). You represent the heap as an array and heap is based on a complete binary tree. The two elements below the i'th element are at positions 2*i+1 and 2*i+2. If the array has n elements then, starting from the end, take each element, and let it "fall" to the right place in the heap. This is O(n) to run.</p>
-									<p> * space complexity: Because the make_heap will rearrange the elements in the vector, basically the space for heap is the same as the vector, which is O(N) for heap itself. There might only few variables that are used for doing swaps. </p>
 									<p>
 <textarea>
 	using namespace std; 
@@ -80,9 +78,25 @@
 									</p>
 									<h4>front()</h4> 
 									<p>Retrieve the root value in this heap, either a maximum or a minimum value depending on which heap you built.</p>
-									<h4>push_heap()</h4> 
-									<p>Insert a new value into the heap.</p>
-									<h4>pop_headp()</h4>
+									<p>* time complexity: O(1)</p>
+									<h4>push_heap(iter_first, iter_last)</h4>
+									<p>Insert a new value into MAX heap.</p>
+									<h4>push_heap(iter_first, iter_last, comp)</h4>
+									<p>Insert a new value into MIN heap. The comp parameter is greater<int>().</p>
+									<p>
+<textarea>
+	//MAX HEAP
+	vec.push_back(99); 
+	push_heap (vec.begin(), vec.end());
+	cout << "max heap after push: " << v.front();
+	  
+	//MIN HEAP
+	vec.push_back(99); 
+	push_heap (vec.begin(), vec.end(), greater<int>());
+	cout << "max heap after push: " << v.front();
+</textarea>
+									</p>
+									<h4>pop_heap()</h4>
 									<p>Delete the maximum or minimum value in the heap, and it depends on which heap you use.</p>
 									<hr class="major" />
 									<h3> Max Heap</h3>
