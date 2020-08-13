@@ -45,8 +45,21 @@
 									<p> * space complexity: </p>
 									<p>
 <textarea>
-
+	using namespace std; 
+  
+	int main() 
+	{ 
+		vector<int> vi = { 4, 9, 7, 8, 11}; 
+		  
+		// using make_heap() to making a vector into a max heap 
+		make_heap(vi.begin(),vi.end()); 
+		  
+		// front() function 
+		cout << "The maximum number in the heap is:"; 
+		cout << vi.front(); 
+	} 
 </textarea>
+									</p>
 									<p>make_heap(iter_first, iter_last, comp): Making a vector into a min heap. The comp parameter is greater<int>().</p>
 									<p>front(): Retrieve the root value in this heap, either a maximum or a minimum value depending on which heap you built.</p>
 									<p>push_heap(): Insert a new value into the heap.</p>
