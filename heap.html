@@ -40,7 +40,8 @@
 									<h3>Binary Heap</h3>
 									<p>A binary heap is a complete binary tree. There are max-heap and min-heap. Binary heaps are a common way of implementing priority queues. Thus, we can say priority queue uses a heap as data structure.</p>
 									<h3>Operations on heap</h3>
-									<h4>make_heap(iter_first, iter_last): Making a vector into a MAX heap. </h4>
+									<h4>make_heap(iter_first, iter_last)</h4>
+									<h4>Making a vector into a MAX heap. </h4>
 									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N). You represent the heap as an array and heap is based on a complete binary tree. The two elements below the i'th element are at positions 2*i+1 and 2*i+2. If the array has n elements then, starting from the end, take each element, and let it "fall" to the right place in the heap. This is O(n) to run.</p>
 									<p> * space complexity: </p>
 									<p>
@@ -58,7 +59,8 @@
 	} 
 </textarea>
 									</p>
-									<h4>make_heap(iter_first, iter_last, comp): Making a vector into a MIN heap. The comp parameter is greater<int>().</h4>
+									<h4>make_heap(iter_first, iter_last, comp)</h4>
+									<h4>Making a vector into a MIN heap. The comp parameter is greater<int>().</h4>
 									<p> * time complexity: O(NlogN), since heapify costs O(logN) and build-heap makes O(N) calls. However, O(NlogN) is the upperbound,though correct. The tighter bound can be O(N). You represent the heap as an array and heap is based on a complete binary tree. The two elements below the i'th element are at positions 2*i+1 and 2*i+2. If the array has n elements then, starting from the end, take each element, and let it "fall" to the right place in the heap. This is O(n) to run.</p>
 									<p> * space complexity: </p>
 									<p>
