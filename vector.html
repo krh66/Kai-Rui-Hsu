@@ -38,6 +38,20 @@
 									<h3>Operations on Vector</h3>
 									<h4>sort(iter_first, iter_last)</h4>
 									<h4>sort(iter_first, iter_last, comp)</h4>
+									<p>
+<textarea>
+	bool static cmp(vector<int> a,vector<int> b)
+	{
+		if(a[0] == b[0])
+			return a[1] < b[1]; //second element is acsending order based on the the order of the first element
+		return a[0] > b[0]; //first element is descending order
+	}
+	sort(vec.begin(), vec.end(), cmp);
+
+	input data:  [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+	sorted data: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
+</textarea>
+									</p>
 								</section>
 
 						</div>
