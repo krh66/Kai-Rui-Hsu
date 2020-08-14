@@ -46,7 +46,7 @@
 									<p>
 <textarea>
 	int main (){
-		stack<int> stk;
+		stack<int> foo, bar;
 		
 		foo.push (10); foo.push(20); foo.push(30);
 		
@@ -55,19 +55,19 @@
 		foo.swap(bar);
 
 		while(!foo.empty()) {
-			cout << foo.front() << " ";
+			cout << foo.top() << " ";
 			foo.pop();
 		}
 		cout << "\n";
 		while(!bar.empty()) {
-			cout << bar.front() << " ";
+			cout << bar.top() << " ";
 			bar.pop();
 		}
 		return 0;
 	}
 
-	foo: 111 222
-	bar: 10 20 30
+	foo: 222 111
+	bar: 30 20 10
 </textarea>
 									</p>
 									
