@@ -62,19 +62,32 @@
 	sorted data: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 
 </textarea>
 									</p>
+									<p>
+<textarea>
+	bool static cmp(const pair<int,int> &p1, const pair<int,int> &p2) {
+		return p1.second < p2.second; //second element is ascending order
+	}
+	int main() { 
+		vector<vector<int>>> vec = {{6,8}, {1,9}, {2,4}, {4,7}};
+		sort(vec.begin(), vec.end(), cmp);
+	}
+	input data:  [[6,8], [1,9], [2,4], [4,7]]
+	sorted data: [[2,4], [4,7], [6,8], [1,9]] 
+</textarea>
+									</p>
 									<p>compare two element
 <textarea>
 	bool static cmp(vector<int> a,vector<int> b) {
 		if(a[0] == b[0])
-			return a[1] < b[1]; //second element is acsending order based on the the order of the first element
+			return a[1] < b[1]; //second element is ascending order based on the the order of the first element
 		return a[0] > b[0]; //first element is descending order
 	}
 	int main() { 
-		vector<vector<int>>> vec = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
+		vector<vector<int>>> vec = {{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}};
 		sort(vec.begin(), vec.end(), cmp);
 	}
-	input data:  [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
-	sorted data: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
+	input data:  [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
+	sorted data: [[7,0], [7,1], [6,1], [5,0], [5,2], [4,4]]
 </textarea>
 									</p>
 								</section>
