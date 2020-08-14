@@ -39,10 +39,38 @@
 									<h3>empty()</h3>
 									<h3>size()</h3>
 									<h3>front()</h3>
+									<p>stack uses "top()".</p>
 									<h3>back()</h3>
 									<h3>push()</h3>
 									<h3>pop()</h3>
 									<h3>swap()</h3>
+									<p>
+<textarea>
+	int main (){
+		queue<int> foo,bar;
+		
+		foo.push (10); foo.push(20); foo.push(30);
+		
+		bar.push (111); bar.push(222);
+
+		foo.swap(bar);
+
+		while(!foo.empty()) {
+			cout << foo.front() << " ";
+			foo.pop();
+		}
+		cout << "\n";
+		while(!bar.empty()) {
+			cout << bar.front() << " ";
+			bar.pop();
+		}
+		return 0;
+	}
+
+	foo: 111 222
+	bar: 10 20 30
+</textarea>
+									</p>
 									<hr class="major" />
 
 									
