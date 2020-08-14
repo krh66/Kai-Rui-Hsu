@@ -38,7 +38,7 @@
 									<h3>Operations on Vector</h3>
 									<h4>sort(iter_first, iter_last)</h4>
 									<p>The elements are sorted in acsending order.</p>
-									<p>compare one element
+									<p>
 <textarea>
 	int main() { 
     	vector<int> vec{ 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; 
@@ -51,7 +51,7 @@
 </textarea>
 									</p>
 									<h4>sort(iter_first, iter_last, comp)</h4>
-									<p>compare two element
+									<p>compare one element
 <textarea>
 	int main() { 
 		vector<int> vec{ 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; 
@@ -62,20 +62,17 @@
 	sorted data: 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 
 </textarea>
 									</p>
-									<p>
+									<p>compare two element
 <textarea>
-	bool static cmp(vector<int> a,vector<int> b)
-	{
+	bool static cmp(vector<int> a,vector<int> b) {
 		if(a[0] == b[0])
 			return a[1] < b[1]; //second element is acsending order based on the the order of the first element
 		return a[0] > b[0]; //first element is descending order
 	}
-
 	int main() { 
 		vector<vector<int>>> vec = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
 		sort(vec.begin(), vec.end(), cmp);
 	}
-	
 	input data:  [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
 	sorted data: [[7,0],[7,1],[6,1],[5,0],[5,2],[4,4]]
 </textarea>
