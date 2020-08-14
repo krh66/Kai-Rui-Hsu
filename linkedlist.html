@@ -182,6 +182,31 @@
 									<p><a href = "https://leetcode.com/problems/linked-list-cycle-ii/">[Medium] No.142 Linked List Cycle II</a></p>
 									<span class="image main"><img src="images/first_intersection.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
 									<p>
+									<p>
+<textarea>
+	class Solution {
+		public:
+			ListNode *detectCycle(ListNode *head) {
+				if(head == NULL || head->next == NULL) return NULL;
+				ListNode* turtle = head;
+				ListNode* hare = head;
+				
+				while(hare != NULL && hare->next != NULL) {
+					turtle = turtle->next;
+					hare = hare->next->next;
+					if(turtle == hare) break;
+				}
+				
+				turtle = head;
+				while(turtle != hare && hare != NULL) {
+					turtle = turtle->next;
+					hare = hare->next;
+				}
+				return hare;
+			}
+		};
+</textarea>
+									</p>
 <textarea>
 	class Solution {
 		public:
