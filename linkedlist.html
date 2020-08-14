@@ -179,6 +179,32 @@
 </textarea>
 									<hr class="major" />
 									<h2>Floyd's Tortoise and Hare (Cycle Detection)</h2>
+									<p><a href = "https://leetcode.com/problems/linked-list-cycle-ii/">[Medium] No.142 Linked List Cycle II</a></p>
+									<span class="image main"><img src="images/first_intersection.png" alt="" /><p>(The above image is from leetcode.com.)</p></span>
+									<p>
+<textarea>
+	class Solution {
+		public:
+			int findDuplicate(vector<int>& nums) {
+				int turtle = nums[0];
+				int hare = nums[0];
+				
+				do{
+					turtle = nums[turtle];
+					hare = nums[nums[hare]];
+				}while(turtle != hare);
+				
+				turtle = nums[0];
+				while(turtle != hare) {
+					turtle = nums[turtle];
+					hare = nums[hare];
+				}
+				
+				return hare;
+			}
+		};
+</textarea>
+								</p>
 								</section>
 
 						</div>
