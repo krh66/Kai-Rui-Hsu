@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>String</title>
+		<title>Tree Data Structure</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -26,7 +26,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>String</h1>
+										<h1>Tree</h1>
 									</header>
 									<!--
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
@@ -35,114 +35,17 @@
 
 									<hr class="major" />
 
-									<h2>Stringstream:</h2>
-									<p>Extracts characters from ss and stores them into str s until the delimitation character delim is found (or the newline character, '\n', if there is no delimiter parameter).</p>
-									<h3>getline(string ss, string s)</h3>
-									<h3>getline(string ss, string s, char delimiter)</h3>
-									<p>ss : istream object from which characters are extracted.</p>
-									<p>s : string object where the extracted line is stored.</p>
-									<p>
-<textarea>
-	// extract to string
-	#include <iostream>
-	#include <sstream>
-	#include <string>
-	using namespace std;
+									<h2>Basic concept</h2>
+									<span class="image main"><img src="images/tree_relations.png" alt="" /><p>(The above image is from http://alrightchiu.github.io/SecondRound/.)</p></span>
+									<h3>Tree Definition:</h3>
+									<p>Only one root.</p>
+									<p>No cycle exists.</p>
+									<p>Degree: For a given node, its number of children.</p>
+									<p>External Node / leaf Node: Any node that does not have child nodes.</p>
+									<p>Internal Node : Any node of a tree that has at least one child node.</p>
+									<p>Height of node: The biggest number of edges from one node to a leaf node.</p>
+									<span class="image main"><img src="images/tree_structure.png" alt="" /><p>(The above image is from http://alrightchiu.github.io/SecondRound/.)</p></span>
 
-	int main ()
-	{
-	string contents = "Please, enter your full name: ";
-	stringstream ss(contents);
-	string s;
-
-	
-	while(getline (ss ,s, ' '))
-		cout << s << "\n";
-
-	return 0;
-	}
-</textarea>
-									</p>
-									<p><a href = "https://leetcode.com/problems/linked-list-cycle-ii/">[Hard] No.588 Design In-Memory File System</a></p>
-									<p>
-<textarea>
-	class FileSystem {
-		struct node {
-			bool isFile;
-			map<string, node*> next;
-			string content;
-			//initialize
-			node() {
-				isFile = false;
-			}
-		};
-		node *root;
-	public:
-		FileSystem() {
-			root = new node();
-		}
-		
-		vector<string> ls(string path) { 
-			stringstream ss(path);
-			string s;
-			node *iter = root;
-			while(getline(ss, s, '/')) {
-				if(s.size() == 0)
-					continue;
-				iter = iter->next[s];
-			}
-			cout << "s = " << s << "\n";
-			if(iter->isFile)
-				return vector<string>{s};
-			vector<string> ret;
-			for(auto it : iter->next)
-				ret.push_back(it.first);
-			return ret;
-		}
-		
-		void mkdir(string path) {
-			stringstream ss(path);
-			string s;
-			node *t = root;
-			while(getline(ss, s, '/')) {
-				if(!s.size())
-					continue;
-				if(!t->next.count(s)) {
-					t->next[s] = new node();
-				}
-				t = t->next[s];
-			}
-		}
-		
-		void addContentToFile(string filePath, string content) {
-			stringstream ss(filePath);
-			string s;
-			node *t = root;
-			while(getline(ss, s, '/')) {
-				if(!s.size())
-					continue;
-				if(!t->next.count(s))
-					t->next[s] = new node();
-				t = t->next[s];
-			}
-			t->isFile = true;
-			!t->content.size() ? t->content = content : t->content += content;
-		}
-		
-		string readContentFromFile(string filePath) {
-			stringstream ss(filePath);
-			string s;
-			node *t = root;
-			while(getline(ss, s, '/')) {
-				if(!s.size())
-					continue;
-				t = t->next[s];
-			}
-			return t->content;
-		}
-	};
-</textarea>
-									</p>
 						</div>
 					</div>
 
