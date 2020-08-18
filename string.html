@@ -91,7 +91,6 @@
 					continue;
 				iter = iter->next[s];
 			}
-			cout << "s = " << s << "\n";
 			if(iter->isFile)
 				return vector<string>{s};
 			vector<string> ret;
@@ -105,9 +104,9 @@
 			string s;
 			node *t = root;
 			while(getline(ss, s, '/')) {
-				if(!s.size())
+				if(s.size() == 0)
 					continue;
-				if(!t->next.count(s)) {
+				if(t->next.count(s) == 0) {
 					t->next[s] = new node();
 				}
 				t = t->next[s];
@@ -119,14 +118,14 @@
 			string s;
 			node *t = root;
 			while(getline(ss, s, '/')) {
-				if(!s.size())
+				if(s.size() == 0)
 					continue;
-				if(!t->next.count(s))
+				if(t->next.count(s) == 0)
 					t->next[s] = new node();
 				t = t->next[s];
 			}
 			t->isFile = true;
-			!t->content.size() ? t->content = content : t->content += content;
+			t->content = t->content.size() == 0 ? content : t->content += content;
 		}
 		
 		string readContentFromFile(string filePath) {
@@ -134,7 +133,7 @@
 			string s;
 			node *t = root;
 			while(getline(ss, s, '/')) {
-				if(!s.size())
+				if(s.size() == 0)
 					continue;
 				t = t->next[s];
 			}
