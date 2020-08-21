@@ -38,8 +38,23 @@
 									<h2>Concept</h2>
 									<p>In tree traversal, we can use DFS to do pre-order, in-order and post-order traversal.</p>
 									<h2>Implementation</h2>
-									<p>1.Recursion. (using STACK in recursion)</p>
+									<p>1.Recursion. (using implicit STACK in recursion, which is known as "Call Stack")</p>
 									<p>2.Without recursion.</p>
+									<h2>Template</h2>
+									<p>
+<textarea>
+	bool DFS(int cur, int target, set<int> visited) {
+		if(cur == target) return true;
+		for(next : each neighbor of cur) {
+			if(next is not in visited) {
+				add next into visited;
+				if(DFS(next, target, visited) == true) return true;
+			}
+		}
+		return false;
+	}
+</textarea>
+									</p>
 									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876 Middle of Linked List</a></p>
 									<P>Approach: Fast and Slow Pointer</P>
 									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
