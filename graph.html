@@ -48,7 +48,38 @@
 									<h4>Adjacent Matrix</h4>
 									<hr class="major" />
 									<p><a href = "https://leetcode.com/problems/clone-graph/">[Medium] No.133 Clone Graph</a></p>
-									<P>Approach1: BFS</P> 
+									<p>Approach1: DFS</p>
+									<p>Time Complexity: O(N), where N is the number of nodes in the given graph.</p>
+									<p>Space Complexity: O(N), where N is the size of visited map. The stack would need O(H), where H is the maximum height of the graph. However, H <= N, overall, space complexity is O(N).</p>
+									<p class = "code solution">
+<textarea>
+	//DFS
+	class Solution {
+	public:
+    	unordered_map<Node*, Node*> visited;
+		
+    	Node* cloneGraph(Node* node) {
+        	//base case
+			if(node == NULL) return NULL;
+			//traverse neighbors
+			vector<Node*> iter = node->neighbors;
+			Node* cur = new Node(node->val);
+			visited[node] = cur;
+			for(int i = 0 ; i < iter.size() ; i++) {
+				//not visited
+				if(visited.find(iter[i]) == visited.end()) {
+					Node* nei = cloneGraph(iter[i]);
+					cur->neighbors.push_back(nei);
+				}else {
+					cur->neighbors.push_back(visited[iter[i]]);
+				}
+			}
+			return cur;
+		}
+	};
+</textarea>
+									</p>
+									<P>Approach2: BFS + queue</P> 
 									<p>Time Complexity: O(N), where N is the number of nodes in the given graph.</p>
 									<p>Space Complexity: O(N), where N is the size of visited map. The queue would need O(W), where W is the maximum width of the graph. However, W <= N, overall, space complexity is O(N).</p>
 									<p class = "code solution">
