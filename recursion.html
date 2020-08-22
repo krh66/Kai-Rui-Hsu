@@ -72,7 +72,31 @@
 									<p>Space Complexity: O(N), the depth of recursion tree would be and need to have N times call stacks.</p>
 									<p class = "code solution">
 <textarea>
-
+	class Solution {
+		public:
+			int helper(vector<int>& nums, int index, int sum, int S, vector<vector<int>>& memo) {
+				if(index == nums.size()) {
+					if(sum == S) return 1;
+					else return 0;
+				}else {
+					//not visited
+					if(memo[index][sum + 1000] == INT_MIN) {
+						int add = helper(nums, index+1, sum + nums[index], S, memo);
+						int sub = helper(nums, index+1, sum - nums[index], S, memo);
+						memo[index][sum + 1000] = add + sub;
+					}
+					return memo[index][sum + 1000];
+				}
+			}
+			
+			
+			int findTargetSumWays(vector<int>& nums, int S) {
+				if(nums.size() == 0) return 0;
+				vector<vector<int>> memo(nums.size(), vector<int>(2001,INT_MIN));
+				return helper(nums, 0, 0, S, memo);
+			}
+		};
+		
 </textarea>
 									</p>
 									<hr class="major" />
