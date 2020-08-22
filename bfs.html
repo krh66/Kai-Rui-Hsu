@@ -41,22 +41,31 @@
 									<p>In finding shortest path: If a node X is added to the queue in the kth round, the length of the shortest path between the root node and X is exactly k.</p>
 									<h2>Implementation</h2>
 									<p>1.Queue.</p>
-									<p>2.Without recursion. (using explicit STACK)</p>
-									<h2>Template - recursion</h2>
-									<p>We stop when we find the first answer, but maybe this answer is not what we want. Maybe it's not the shortest path, or we want to find all possible pathes we have.</p>
-									<p>Hint: Add one more parameter to indicate the shortest path you have already found.</p>
+									<h2>Template</h2>
+									<p>Find the length of a shortest path from root to target.</p>
+									<p>Every time, you move forward one level down, in this case, you will find the shortest length from root to target.</p>
 									<p>
 <textarea>
 	class Solution {
 		public:
-			ListNode* middleNode(ListNode* head) {
-				ListNode* slow = head;
-				ListNode* fast = head;
-				while (fast != NULL && fast->next != NULL) {
-					slow = slow->next;
-					fast = fast->next->next;
+			int bfs(Node* root, Node* target) {
+				qeueu<Node*> q;
+				q.push(root);
+				int step = 0;
+				while(!q.empty()) {
+					step++;
+					//iterate queue
+					int n = q.size();
+					for(int i = 0 ; i < n ; i++) {
+						Node* cur = q.front();
+						q.pop();
+						if(cur == target) return step;
+						for(Node next: the neighbors of cur) {
+							q.push(next);
+						}
+					}
 				}
-				return slow;
+				return -1; //there is no path from root to target
 			}
 		};
 </textarea>
