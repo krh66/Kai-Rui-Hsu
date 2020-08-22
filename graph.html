@@ -42,23 +42,63 @@
 									<span class="image main"><img src="images/shallow_cp.png" alt="" /><p>(The above image is from http://en.wikipedia.org.)</p></span>
 									<h3>Represent a graph</h3>
 									<h4>Adjacent List</h4>
+									<p>using Map, Vector</p>
 									<h4>Adjacent Matrix</h4>
-									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876 Middle of Linked List</a></p>
-									<P>Approach: Fast and Slow Pointer</P>
-									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1), the space used by slow and fast</p>
+									<p><a href = "https://leetcode.com/problems/clone-graph/">[Medium] No.133 Clone Graph</a></p>
+									<P>Approach1: BFS</P> 
+									<p>Time Complexity: O(N), where N is the number of nodes in the given graph.</p>
+									<p>Space Complexity: O(N), where N is the size of visited map. The queue would need O(W), where W is the maximum width of the graph. However, W <= N, overall, space complexity is O(N).</p>
 									<p class = "code solution">
 <textarea>
+	/*
+	// Definition for a Node.
+	class Node {
+	public:
+		int val;
+		vector<Node*> neighbors;
+		
+		Node() {
+			val = 0;
+			neighbors = vector<Node*>();
+		}
+		
+		Node(int _val) {
+			val = _val;
+			neighbors = vector<Node*>();
+		}
+		
+		Node(int _val, vector<Node*> _neighbors) {
+			val = _val;
+			neighbors = _neighbors;
+		}
+	};
+	*/
+	
 	class Solution {
 		public:
-			ListNode* middleNode(ListNode* head) {
-				ListNode* slow = head;
-				ListNode* fast = head;
-				while (fast != NULL && fast->next != NULL) {
-					slow = slow->next;
-					fast = fast->next->next;
+			Node* cloneGraph(Node* node) {
+				if(node == NULL) return NULL;
+				//original node, clone node
+				unordered_map<Node*, Node*> visited;
+				Node* dummy = new Node(node->val);
+				queue<Node*> q;
+				q.push(node);
+				visited[node] = dummy;
+				while(!q.empty()) {
+					Node* cur = q.front();
+					q.pop();
+					//iterate through neighbors
+					for(int i = 0 ; i < cur->neighbors.size() ; i++) {
+						//not found
+						if(visited.find(cur->neighbors[i]) == visited.end()) {
+							Node* newNode = new Node(cur->neighbors[i]->val);
+							visited[cur->neighbors[i]] = newNode;
+							q.push(cur->neighbors[i]);
+						}
+						visited[cur]->neighbors.push_back(visited[cur->neighbors[i]]);
+					}
 				}
-				return slow;
+				return visited[node];
 			}
 		};
 </textarea>
