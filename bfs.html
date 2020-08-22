@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Linked List</title>
+		<title>BFS</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -26,7 +26,7 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Linked List</h1>
+										<h1>Breadth-first Search (BFS)</h1>
 									</header>
 									<!--
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
@@ -35,12 +35,15 @@
 
 									<hr class="major" />
 
-									<h2>Middle of a linked list</h2>
-									<p><a href = "https://leetcode.com/problems/middle-of-the-linked-list/">[Easy] No.876 Middle of Linked List</a></p>
-									<P>Approach: Fast and Slow Pointer</P>
-									<p>Time Complexity: O(N), where N is the number of nodes in the given list.</p>
-									<p>Space Complexity: O(1), the space used by slow and fast</p>
-									<p class = "code solution">
+									<h2>Concept</h2>
+									<p>Two main scenarios of using BFS: do traversal or find the shortest path. Typically, it happens in a tree or a graph.</p>
+									<h2>Implementation</h2>
+									<p>1.Recursion. (using implicit STACK in recursion, which is known as "Call Stack")</p>
+									<p>2.Without recursion. (using explicit STACK)</p>
+									<h2>Template - recursion</h2>
+									<p>We stop when we find the first answer, but maybe this answer is not what we want. Maybe it's not the shortest path, or we want to find all possible pathes we have.</p>
+									<p>Hint: Add one more parameter to indicate the shortest path you have already found.</p>
+									<p>
 <textarea>
 	class Solution {
 		public:
