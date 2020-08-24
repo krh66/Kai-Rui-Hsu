@@ -106,6 +106,48 @@
 		};
 </textarea>
 									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/perfect-squares/solution/">[Medium] No.279 Perfect Squares</a></p>
+									<p>Approach: BFS + greedy</p>
+									<p>Time Complexity: O(N^h/2), where h is the maximal number of recursion that could happen.</p>
+									<p>Space Complexity: check the link.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int numSquares(int n) {
+				//construct data base
+				set<int> uset;
+				for(int i = 1 ; i * i <= n ; i++) {
+					uset.insert(i*i);
+				}
+				queue<int> q; //store remain number
+				unordered_set<int> next_queue; //avoid duplicate numbers
+				q.push(n);
+				int step = 0;
+				while(!q.empty()) {
+					step++;
+					int siz = q.size();
+					for(int j = 0 ; j < siz ; j++) {
+						int cur = q.front();
+						q.pop();
+						for(auto it = uset.begin() ; it != uset.end() ; it++) {
+							if(uset.count(cur) != 0) return step;
+							if(cur > *it) {
+								next_queue.insert(cur - *it);
+							}
+						}
+					}
+					//move set into queue
+					for(auto itt = next_queue.begin() ; itt != next_queue.end() ; itt++) {
+						q.push(*itt);
+					}
+				}
+				return step;
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>
