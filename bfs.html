@@ -148,6 +148,41 @@
 		};
 </textarea>
 									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/">[Medium] No.103 Binary Tree Zigzag Level Order Traversal</a></p>
+									<p>Approach: BFS</p>
+									<p>Time Complexity: O(N), where N is the number of nodes in the tree.</p>
+									<p>Space Complexity: O(N), where N is the number of nodes in the tree.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+				if(root == NULL) return {};
+				queue<TreeNode*> q;
+				q.push(root);
+				vector<vector<int>> ans;
+				while(!q.empty()) {
+					int siz = q.size();
+					vector<int> temp;
+					for(int i = 0 ; i < siz ; i++) {
+						TreeNode* cur = q.front();
+						q.pop();
+						temp.push_back(cur->val);
+						if(cur->left != NULL) q.push(cur->left);
+						if(cur->right != NULL) q.push(cur->right);
+					}
+					ans.push_back(temp);
+				}
+				//reverese odd index order
+				for(int j = 1 ; j < ans.size() ; j+=2) {
+					reverse(ans[j].begin(), ans[j].end());
+				}
+				return ans;
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>

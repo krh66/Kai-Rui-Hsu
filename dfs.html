@@ -165,6 +165,49 @@
 	}
 </textarea>
 									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/maximum-average-subtree/">[Medium] No.1120 Maximum Average Subtree</a></p>
+									<p>Approach: DFS with pair</p>
+									<p>Time Complexity: O(N), where N is the number of nodes in the tree.</p>
+									<p>Space Complexity: O(N), where N is the number of nodes in the tree.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			double ans = -1;
+			pair<int,int> dfs(TreeNode* node) {
+				double left = 0, right = 0;
+				pair<int,int> pl, pr;
+				int num = 1;
+				//leaf node
+				if(node->left == NULL && node->right == NULL) {
+					if(node->val > ans) ans = node->val;
+					return {node->val,1};
+				}
+				//not leaf node
+				if(node->left != NULL) {
+					pl = dfs(node->left);
+					left = pl.first;
+					num += pl.second;
+					
+				}
+				if(node->right != NULL) {
+					pr = dfs(node->right);
+					right = pr.first;
+					num += pr.second;
+				}
+				ans = max(ans, (left + right + node->val) / num);
+				return {left+right+node->val, num};
+			}
+			
+			double maximumAverageSubtree(TreeNode* root) {
+				if(root == NULL) return 0;
+				dfs(root);
+				return ans;
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>
