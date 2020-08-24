@@ -60,6 +60,36 @@
 </textarea>
 									</p>
 									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/perfect-squares/solution/">[Medium] No.279 Perfect Squares</a></p>
+									<p>Approach: Dynamic Programming</p>
+									<p>Time Complexity: O(N^h/2), where h is the maximal number of recursion that could happen.</p>
+									<p>Space Complexity: check the link.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int numSquares(int n) {
+				//data base
+				vector<int> vec;
+				for(int j = 1 ; j*j <= n ; j++) {
+					vec.push_back(j*j);
+				}
+				
+				vector<int> dp(n+1,INT_MAX-1);
+				dp[0] = 0;
+				for(int i = 1 ; i <= n ; i++) {
+					for(int k = 0 ; k < vec.size() ; k++) {
+						if(i >= vec[k]) {
+							dp[i] = min(dp[i], dp[i-vec[k]] + 1);
+						}
+					}
+				}
+				
+				return dp[n];
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>
