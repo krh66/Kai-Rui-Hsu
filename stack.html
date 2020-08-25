@@ -73,9 +73,34 @@
 									<hr class="major" />
 									<h2>Parentheses related question</h2>
 									<h3>Concept</h3>
-									<p>Whenever you encounter LEFT side Parentheses or other types of start brackets(ex. '(', '[', '{'), executer PUSH.</p>
-									<p>Whenever you encounter RIGHT side Parentheses or other types of start brackets(ex. ')', ']', '}'), executer POP.</p>
+									<p>Whenever you encounter an OPENING bracket (LEFT side) i.e. '(', '[', '{', executer PUSH.</p>
+									<p>Whenever you encounter an CLOSING bracket (RIGHT side) i.e. ')', ']', '}', executer POP.</p>
 									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/number-of-atoms/">[Hard] No.726 Number of Atoms</a></p>
+									<p>Approach: Stack</p>
+									<p>Time Complexity: O(N), where N is the length of string.</p>
+									<p>Space Complexity: O(N), where N is the length of string.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			bool isValid(string s) {
+				stack<char> stk;
+				for(int i = 0 ; i < s.size() ; i++) {
+					if(s[i] == '(' || s[i] == '{' || s[i] == '[') stk.push(s[i]);
+					else {
+						if(stk.size() == 0) return false;
+						if(s[i] == ')' && stk.top() != '(' ||
+						   s[i] == '}' && stk.top() != '{' ||
+						   s[i] == ']' && stk.top() != '[') return false;
+						else stk.pop();
+					}
+				}
+				return stk.size() == 0 ? true : false;
+			}
+		};
+</textarea>
+									</p>
 									<p><a href = "https://leetcode.com/problems/number-of-atoms/">[Hard] No.726 Number of Atoms</a></p>
 									<p>Approach: Stack + map</p>
 									<p>Time Complexity: O(N^2), where N is the length of formula.</p>
