@@ -1,4 +1,4 @@
-website: https://krh66.github.io/kai-rui-hsu/
+website: https://krh66.github.io/kai-rui-hsu/index.html
 
 Editorial by HTML5 UP
 html5up.net | @ajlkn
