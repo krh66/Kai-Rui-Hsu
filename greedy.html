@@ -43,6 +43,8 @@
 									<p>Approach: disjoint-set (Union-find)</p>
 									<h4>Prim's algorithm</h4>
 									<p>Different from Dijkstra's algo : no need to acuumulate values for each node, only need to find local optimal edge. </p>
+									<p>time complexity: binary heap(priority queue)=> O(ElogV), where E is the number of total edges and V is the number of vertex.</p>
+									<p>                 Fibonacci heap => O(VlogV + E).</p>
 									<span class="image main"><img src="images/prim's.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
 									<hr class="major" />
 									<h3>Graph search and finding a shortest path</h3>
@@ -53,7 +55,8 @@
 									<p>4.A key technique in shortest path algorithms is relaxation.</p>
 									<span class="image main"><img src="images/relaxation.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
 									<p>5.May not result in a MST.</p>
-									<p>time complextity: O(ElogV), where E is the total number of edges and V is the total number of vertex. Look <a href = "https://stackoverflow.com/questions/26547816/understanding-time-complexity-calculation-for-dijkstra-algorithm">here</a> for explaination</p>
+									<p>time complextity: binary heap(priority queue) => O(ElogV), where E is the total number of edges and V is the total number of vertex. Look <a href = "https://stackoverflow.com/questions/26547816/understanding-time-complexity-calculation-for-dijkstra-algorithm">here</a> for explaination</p>
+									<p>                : Fibonacci heap => O(VlogV + E).</p>
 									<p>space complexity: O(V)</p>
 									<span class="image main"><img src="images/Dijkstra’s.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
 									<hr class="major" />
