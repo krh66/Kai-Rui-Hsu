@@ -72,6 +72,42 @@
 		};
 </textarea>
 									</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/trapping-rain-water/">[Hard] No.42 Trapping Rain Water</a></p>
+									<p>Approach: Dynamic Programming</p>
+									<p>Time Complexity: O(N), where N is the number of the list.</p>
+									<p>Space Complexity: O(N), where N is the size of dp array.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int trap(vector<int>& height) {
+				if(height.empty()) return 0;
+				int n = height.size();        
+				vector<int> leftMax(n,0);
+				vector<int> rightMax(n,0);
+				int ans = 0;
+				
+				leftMax[0] = height[0];
+				//left max
+				for(int i = 1 ; i < n ; i++){
+					leftMax[i] = max(height[i], leftMax[i-1]);
+				}
+				
+				rightMax[n-1] = height[n-1];
+				//right max
+				for(int j = n - 2; j >= 0 ; j--){
+					rightMax[j] = max(height[j], rightMax[j+1]);
+				}
+				//calcualte difference
+				for(int k = 0 ; k < n ; k ++){
+					ans += min(leftMax[k], rightMax[k]) - height[k];
+				}
+				return ans;
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>
