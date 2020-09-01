@@ -36,8 +36,11 @@
 									<hr class="major" />
 									<h2>List (Double Linked List in C++ STL)</h2>
 									<h3>splice(iterator of list1, list2)</h3>
-									<h3>splice(iterator of list1, list2, iterator of list2)</h3>
-									<h3>splice(iterator of list1, list2, start-iterator of list2, end-iterator of list2)</h3>
+									<p>copy whole list2 into where iterator points at in list1 and empty list2.</p>
+									<h3>splice(iterator1 of list1, list2, iterator2 of list2)</h3>
+									<p>copy the only element where iterator2 at in list2 into where iterator1 at in list1.</p>
+									<h3>splice(iterator1 of list1, list2, start-iterator of list2, end-iterator of list2)</h3>
+									<p>copy the all elements in the range of start to end iterators in list2 and put them into where iterator1 at in list1.</p>
 									<h3>remove(key)<h3>
 									<p>vector doesn't have this function.</p>
 									<p>delete specific value in the list.</p>
