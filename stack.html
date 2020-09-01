@@ -71,6 +71,36 @@
 </textarea>
 									</p>
 									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/trapping-rain-water/">[Hard] No.42 Trapping Rain Water</a></p>
+									<p>Approach: Stack</p>
+									<p>Time Complexity: O(N), where N is the number of the list.</p>
+									<p>Space Complexity: O(N), where N is worst case of the size of stack.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int trap(vector<int>& height)
+			{
+				int ans = 0, current = 0;
+				stack<int> st;
+				while (current < height.size()) {
+					while (!st.empty() && height[current] > height[st.top()]) {
+						int top = st.top();
+						st.pop();
+						if (st.empty())
+							break;
+						int distance = current - st.top() - 1;
+						int bounded_height = min(height[current], height[st.top()]) - height[top];
+						ans += distance * bounded_height;
+					}
+					st.push(current++);
+				}
+				return ans;
+			}
+		};
+</textarea>
+									</p>
+									<hr class="major" />
 									<h2>Parentheses related question</h2>
 									<h3>Concept</h3>
 									<p>Whenever you encounter an OPENING bracket (LEFT side) i.e. '(', '[', '{', executer PUSH.</p>
