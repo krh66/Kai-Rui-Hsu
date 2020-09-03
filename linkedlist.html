@@ -128,13 +128,46 @@
 		};
 </textarea>
 									<p><a href = "https://leetcode.com/problems/merge-two-sorted-lists/">[Hard] No.23. Merge k Sorted Lists</a></p>
-									<P>Approach 1: Compare one by one</P>
-									<p>Time Complexity: O(kN) where k is the number of linked lists. N is the number of nodes in the final linked list.</p>
-									<p>Space Complexity: O(n) Creating a new linked list costs O(n) space.
-										O(1) It's not hard to apply in-place method - connect selected nodes instead of creating new nodes to fill the new linked list.</p>
+									<P>Approach 1: Merge lists one by one</P>
+									<p>Time Complexity: O(kN) where k is the number of linked lists. We can merge two sorted linked list in O(N) time where N is the total number of nodes in two lists.</p>
+									<p>Space Complexity: O(1). We can merge two sorted linked list in O(1)O(1) space.</p>
 									<p class = "code solution">
 <textarea>
-
+	class Solution {
+		public:
+				ListNode* mergeKLists(vector<ListNode*>& lists) {
+					
+					ListNode* newL = NULL;
+					for(int i = 0 ; i < lists.size() ; i++) {
+						newL = mergerTwoLists(newL, lists[i]);
+					}
+					return newL;
+				}
+			
+				ListNode* mergerTwoLists(ListNode* l1, ListNode* l2) {
+					ListNode* dummy = new ListNode();
+					ListNode* iter = dummy;
+					while(l1 != NULL && l2 != NULL) {
+						if(l1->val > l2->val) {
+							iter->next = l2;
+							l2 = l2->next;
+						}else {
+							iter->next = l1;
+							l1 = l1->next;
+						}
+						iter = iter->next;
+					}
+					if(l1 != NULL) {
+						iter->next = l1;
+						iter = iter->next;
+					}
+					if(l2 != NULL) {
+						iter->next = l2;
+						iter = iter->next;
+					}
+					return dummy->next;
+				}
+		};
 </textarea>
 									<P>Approach 2: Optimize Approach 1 by Priority Queue</P>
 									<p>Time Complexity: O(Nlogk) where k is the number of linked lists. N is the number of nodes in the final linked list.</p>
