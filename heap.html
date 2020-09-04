@@ -148,6 +148,39 @@
 	}
 </textarea>
 									</p>
+									<h4>priority_queue(int)</h4>
+									<p>Decreasing order</p>
+									<h4>priority_queue<int, vector<int>, greater<int>></h4>
+									<p>Increasing order</p>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/k-closest-points-to-origin/">[Medium] No.973 K Closest Points to Origin</a></p>
+									<p>Approach: priority queue</p>
+									<p>Time Complexity: O(NlogN), where N is the number of nodes in the vector, and heap sorting costs O(NlogN).</p>
+									<p>Space Complexity: O(N), where N is the number of nodes need to store in the priority queue.</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			typedef pair<int,pair<int,int>> PAIR;
+			
+			vector<vector<int>> kClosest(vector<vector<int>>& points, int K) {
+				priority_queue<PAIR, vector<PAIR>,greater<PAIR>> pq;
+				vector<vector<int>> ans;
+				for(auto point : points) {
+					pq.push({point[0]*point[0] + point[1]*point[1], {point[0],point[1]}});
+				}
+		
+				while(!pq.empty() && K > 0) {
+					pair<int,pair<int,int>> cur = pq.top();
+					pq.pop();
+					ans.push_back({cur.second.first, cur.second.second});
+					K--;
+				}
+				return ans;
+			}
+		};
+</textarea>
+									</p>
 									<hr class="major" />
 									<h2>Binominal Heap</h2>
 									<p>Faster than binary heap.</p>
