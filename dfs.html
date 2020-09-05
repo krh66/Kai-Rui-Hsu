@@ -149,6 +149,7 @@
 		set<int> visited;
 		stack<int> stk;
 		stk.push(root);
+		visited.insert(root);
 		while(!stk.empty()) {
 			int cur = stk.top();
 			stk.pop();
@@ -156,7 +157,7 @@
 			for(next : each neighbor of cur) {
 				if(next is not in visited) {
 					visited.insert(next);
-					visited.push(next);
+					stk.push(next);
 				}
 			}
 		}
