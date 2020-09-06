@@ -222,11 +222,14 @@
 									</p>
 									<hr class="major" />
 									<h2>Topological Sorting</h2>
+									<h3>Key concept: execute the node which doesn't have an incoming edge.</h3>
 									<p>Time complexity: O(V+E), V is total vertices, E is total edges.</p>
 									<p>Tsort is for DAG(directed Acyclic Graph). Example in real life is dressing clothes.</p>
 									<p>May not have a unique answer.</p>
 									<span class="image main"><img src="images/tsort_example.png" alt="" /><p>(The above image is from wikipedia.org.)</p></span>
 									<p>Famous algorithm to implement tsort. Kahn's algo, DFS, Parallel algo.</p>
+									<p>Approach1 : BFS + indegree map + outdegree map</p>
+									<p>Approach2 : DFS + outdegree map</p>
 								</section>
 
 						</div>
