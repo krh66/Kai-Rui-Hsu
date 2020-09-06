@@ -143,7 +143,75 @@
 									<span class="image main"><img src="images/dfs_graph.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
 									<span class="image main"><img src="images/dfs_graph_demo.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
 									<span class="image main"><img src="images/dfs_graph_edges.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
-									
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/critical-connections-in-a-network/">[Hard] No.1192 Critical Connections in a Network</a></p>
+									<P>Approach2: DFS</P> 
+									<p>Time Complexity: O(V+E), where V is the number of vertex in the given graph, E is the numbers of the given graph.</p>
+									<p>Space Complexity: O(V*E)</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			int time = 0;
+			vector<bool> visited;
+			vector<int> startTime;
+			vector<int> low;//lowest reachable node(time)
+			vector<int> parent;
+			vector<vector<int>> res;
+		
+			vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
+				 /*Initialise variables*/
+				vector<vector<int>> graph(n);
+				visited.resize(n,false);
+				startTime.resize(n,-1);
+				low.resize(n,-1);
+				parent.resize(n,-1);
+				
+				//build graph 因為是undirect graph, 所以起點和終點都要算
+				for(auto con : connections){
+					graph[con[0]].push_back(con[1]);
+					graph[con[1]].push_back(con[0]);
+				}
+				//traverse each node
+				for(int i = 0 ; i < n ; i++){
+				   if(!visited[i]) dfs(graph, i);  
+				}
+				
+				return res;
+			}
+			void dfs(vector<vector<int>>& graph, int node){
+				visited[node] = true;
+				startTime[node] = time;
+				low[node] = time; //lowest reachable node(time)
+				time++;
+				int u = node;
+				//neighbors
+				for(auto v : graph[node]){
+					//not visited
+					if(!visited[v]){
+						parent[v] = u;
+						dfs(graph, v);
+						//Update lowest node reachable from u
+						low[u] = min(low[v], low[u]);
+						//If no lower(than u) node is reachable from v , we have found bridge edge
+						if(startTime[u] < low[v]){
+							res.push_back({u,v});
+						}
+					}
+					//visited, backtracking
+					else{
+						if(parent[u] != v){
+							low[u] = min(low[v], low[u]);
+							if(startTime[u] < low[v]){
+								res.push_back({u,v});
+							}
+						}
+					}
+				}
+			}
+		};
+</textarea>
+									</p>
 								</section>
 
 						</div>
