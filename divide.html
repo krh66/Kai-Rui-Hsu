@@ -31,7 +31,33 @@
 									<hr class="major" />
 									<h2>concept</h2>
 									<p>Recursivly break down a problem into two or more sub-problems. Obtain solution to original problem by combining these solutions.</p>
-									
+									<span class="image main"><img src="images/divide_and_conquer.png" alt="" /><p>(The above image is from ASU SER501.)</p></span>
+									<hr class="major" />
+									<p><a href = "https://leetcode.com/problems/search-a-2d-matrix-ii/">[Medium] No.240 Search a 2D Matrix II</a></p>
+									<P>Approach: Divide and conquer (recursive)</P> 
+									<p>Time Complexity: O(NlogN)</p>
+									<p>Space Complexity: O(logN)</p>
+									<p class = "code solution">
+<textarea>
+	class Solution {
+		public:
+			bool searchMatrix(vector<vector<int>>& matrix, int target) {
+				return check(0, 0, matrix, target);
+			}
+			
+			bool check(int i, int j, vector<vector<int>>& matrix, int target) {
+				if(i >= matrix.size() || j >= matrix[0].size()) return false;
+				//base case
+				if(matrix[i][j] == target) return true;
+				if(matrix[i][j] > target) return false;
+				matrix[i][j] = INT_MAX;
+				
+				return check(i+1, j, matrix, target) || check(i, j+1, matrix, target);
+			}
+		};
+		
+</textarea>
+									</p>
 								</section>
 
 						</div>
