@@ -76,6 +76,62 @@
 									<h2>Deque</h2>
 									<p>double-ended queue</p>
 									<h3>empty()</h3>
+									<h3>pop_front(), push_front()</h3>
+									<h3>pop_back(), push_back()</h3>
+									<h3>find()</h3>
+									<p>find(deque.begin(),deque.end(),target) == deque.end() means the target doesn't exist in the deque.</p>
+									<p><a href = "https://leetcode.com/problems/design-snake-game/">[Medium] No.353 Design Snake Game</a></p>
+									<p>
+<textarea>
+	class SnakeGame {
+		public:
+			list<pair<int,int>> snake;
+			vector<vector<int>> foodie;
+			int food_num = 0;
+			int col = 0;
+			int row = 0;
+			SnakeGame(int width, int height, vector<vector<int>>& food) {
+				this->foodie = food;
+				this->col = width;
+				this->row = height;
+				snake.push_front({0,0});
+			}
+			
+			int move(string direction) {
+				int curi = snake.front().first;
+				int curj = snake.front().second;
+				int offseti = 0;
+				int offsetj = 0;
+			   
+				if(direction == "D") offseti = 1;
+				else if (direction == "U") offseti = -1;
+				else if (direction == "L") offsetj = -1;
+				else if (direction == "R") offsetj = 1;
+				else ;
+				int newi = curi + offseti;
+				int newj = curj + offsetj;
+				//pop back FIRST!!! because when you check if your new step collide on your body
+				//you tail should be move forward already, that's why we should pop tail first
+				pair<int,int> back = snake.back();
+				snake.pop_back();
+				//
+				if(newi < 0 || newi >= row || newj < 0 || newj >= col) return -1;
+				//
+				if(find(snake.begin(), snake.end(), pair(newi, newj)) != snake.end()) return -1;
+				//found food, snake body increases by 1
+				if(foodie.size() > 0 && newi == foodie[0][0] && newj == foodie[0][1]) {
+					snake.push_front({newi, newj});
+					snake.push_back(back);
+					foodie.erase(foodie.begin());
+					food_num++;
+				}else {
+					snake.push_front({newi, newj});
+				}
+				return food_num;
+			}
+		};
+</textarea>
+									</p>
 									
 									
 								</section>
