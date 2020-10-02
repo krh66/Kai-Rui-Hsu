@@ -1,4 +1,4 @@
-website: https://krh66.github.io/kai-rui-hsu/index.html
+website: https://krh66.github.io/leetcode_blog/
 
 Editorial by HTML5 UP
 html5up.net | @ajlkn
